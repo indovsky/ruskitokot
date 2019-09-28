@@ -1,0 +1,40 @@
+// Required Bootstrap 
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+// Optional Bootstrap
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+// Required Glide Core Stylesheet
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+// Optional Glide Theme Stylesheet
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
+// Layout Variables
+@import "./_variables";
+// Components
+@import "./components/section";
+@import "./components/button";
+@import "./components/contact-form";
+// Layout
+@import "./layout/header";
+@import "./layout/content";
+@import "./layout/footer";
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+html,
+body {
+    font-size: 16px;
+    color: #000;
+}

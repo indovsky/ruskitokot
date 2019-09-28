@@ -1,0 +1,37 @@
+.btn {
+    border-radius: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-outline-primary,
+.btn:visited {
+    color: #fff;
+}
+
+.btn-outline-primary {
+    border: 2px solid #cacaca;
+    transition: 0.2s border-color linear;
+
+    &:hover {
+        border-color: #fff;
+        background-color: transparent;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        width: 0%;
+        background-color: rgba(0, 0, 0, 0);
+        transition: 0.2s all linear;
+    }
+
+    &:hover::after {
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+}

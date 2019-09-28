@@ -1,0 +1,188 @@
+// Navbar
+$index: 9999;
+
+.navbar,
+.navbarToggler,
+.navbar-brand {
+    z-index: $index;
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 1) !important;
+
+    &-brand {
+
+        img {
+            height: 60px;
+            width: 60px;
+        }
+    }
+
+    .navbarToggler {
+        outline: none;
+        background: transparent;
+        border: none;
+
+        @include media-md-up {
+            display: none;
+        }
+
+        .hamburger .line {
+            width: 30px;
+            height: 2px;
+            background-color: #fff;
+            display: block;
+            margin: 8px auto;
+            -webkit-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .hamburger:hover {
+            cursor: pointer;
+        }
+
+        &.is-active .hamburger .line:nth-child(2) {
+            opacity: 0;
+        }
+
+        &.is-active .hamburger .line:nth-child(1) {
+            transform: translateY(8px) rotate(43deg);
+        }
+
+        &.is-active .hamburger .line:nth-child(3) {
+            transform: translateY(-13px) rotate(-45deg);
+        }
+    }
+
+    .nav-link {
+        color: #fff !important;
+        position: relative;
+        display: inline-block;
+        outline: none;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 400;
+        text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+
+        &:hover::after,
+        &:hover::before {
+            opacity: 1;
+            transform: translateX(0px);
+        }
+
+        &::after,
+        &::before {
+            display: inline-block;
+            opacity: 0;
+            transition: transform 0.3s, opacity 0.2s;
+        }
+
+        &::before {
+            margin-right: 10px;
+            content: '[';
+            transform: translateX(20px);
+        }
+
+        &::after {
+            margin-left: 10px;
+            content: ']';
+            transform: translateX(-20px);
+        }
+    }
+}
+
+.navbarNav {
+    background: #000;
+    padding: 20px 0;
+    transition: 0.3s all ease-in-out;
+    z-index: 1;
+
+    @include media-md-down {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-180px);
+        text-align: center;
+    }
+
+    &--is-active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(86px);
+    }
+
+    .nav-menu {
+        margin: 0;
+    }
+}
+
+// HEADER
+.page-header {
+    position: relative;
+    background-image: url('../assets/img/ruskitokot_background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 300px;
+
+    @include media-md-up {
+        min-height: 500px;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.45);
+    }
+
+    .container {
+        @extend %flex-fullcenter;
+        min-height: 300px;
+
+        @include media-md-up {
+            min-height: 500px;
+        }
+    }
+
+    &__wrapper {
+        @extend %flex-fullcenter;
+        flex-direction: column;
+    }
+
+    &__title {
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: bold;
+        letter-spacing: 2px;
+        margin-bottom: 6px;
+        padding: 6px;
+        border: 3px solid #fff;
+        background: rgba(0, 0, 0, 0.3);
+        min-height: 49px;
+
+        @include media-sm-up {
+            font-size: 1.7rem;
+            padding: 15px;
+            min-height: 76px;
+        }
+    }
+
+    &__title,
+    &__subtitle {
+        color: #fff;
+    }
+}
+
+.typed-cursor {
+    display: none;
+}

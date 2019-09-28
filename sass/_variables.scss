@@ -1,0 +1,70 @@
+// Breakpoints
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
+// Media Queries
+// Small devices
+@mixin media-sm-up {
+    @media (min-width: #{$sm}) {
+        @content;
+    }
+}
+
+@mixin media-sm-down {
+    @media (max-width: #{$sm}) {
+        @content;
+    }
+}
+
+// Medium devices
+@mixin media-md-up {
+    @media (min-width: #{$md}) {
+        @content;
+    }
+}
+
+@mixin media-md-down {
+    @media (max-width: #{$md}) {
+        @content;
+    }
+}
+
+// Large devices
+@mixin media-lg-up {
+    @media (min-width: #{$lg}) {
+        @content;
+    }
+}
+
+@mixin media-lg-down {
+    @media (max-width: #{$lg}) {
+        @content;
+    }
+}
+
+// Extra large devices
+@mixin media-xl-up {
+    @media (min-width: #{$xl}) {
+        @content;
+    }
+}
+
+@mixin media-xl-down {
+    @media (max-width: #{$xl}) {
+        @content;
+    }
+}
+
+// Helpers
+%flex-fullcenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+%padding-margin-reset {
+    padding: 0;
+    margin: 0;
+}
