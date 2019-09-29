@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-12">
 				<div class="section__header">
-                    <h1 class="section__title">Kim jest Ruski?</h1>
+                    <h1 class="section__title">Ruski - Kim jest Ruski?</h1>
                 </div>
                 <div class="section__content">
                     <img class="section__image section__image--small section__image--pull-right section__image--rounded" src="<?php echo getTemplateUri()->img ?>/ruskisquat.jpg" alt="Ruski">
