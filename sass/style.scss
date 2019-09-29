@@ -35,6 +35,10 @@
 
 html,
 body {
-    font-size: 16px;
+    font-size: 14px;
     color: #000;
+
+    @include media-sm-up {
+        font-size: 16px;
+    }
 }
