@@ -50,8 +50,8 @@
 .customCheckbox span {
     display: none;
     position: absolute !important;
-    top: 1px;
-    left: 1px;
+    left: 0;
+    right: 0;
     text-align: center;
     line-height: 20px;
     font-size: 90% !important;
@@ -60,4 +60,8 @@
 
 .customCheckbox.customCheckboxChecked span {
     display: block;
+}
+
+.wpforms-field-label-inline {
+    font-size: 0.9rem !important;
 }
