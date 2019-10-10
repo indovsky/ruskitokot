@@ -156,25 +156,30 @@ const smoothScroll = () => {
 
 //YouTube API
 const youtubeApi = () => {
-    const key = 'AIzaSyDQyGR7Id8gE0tfqO73AxRwLzacvr18AYU';
-    const channelId = 'UCxmUUahj-R8MpIsWzrPloMQ';
-
     documentReady(() => {
-        $.get("https://www.googleapis.com/youtube/v3/channels", {
+        const key = 'AIzaSyDQyGR7Id8gE0tfqO73AxRwLzacvr18AYU';
+        const channelId = 'UCxmUUahj-R8MpIsWzrPloMQ';
+
+        // Api urls
+        const channelsApi = 'https://www.googleapis.com/youtube/v3/channels';
+        const playlistItems = 'https://www.googleapis.com/youtube/v3/playlistItems';
+        const videosApiUrl = 'https://www.googleapis.com/youtube/v3/videos';
+
+        $.get(channelsApi, {
                 part: 'contentDetails',
                 key: key,
                 id: channelId
             },
             (data) => {
                 $.each(data.items, (i, item) => {
-                    let pid = item.contentDetails.relatedPlaylists.uploads;
+                    const pid = item.contentDetails.relatedPlaylists.uploads;
                     getVids(pid);
                 });
             }
         );
 
         const getVids = (pid, stats) => {
-            $.get("https://www.googleapis.com/youtube/v3/playlistItems", {
+            $.get(playlistItems, {
                     part: 'snippet, status',
                     maxResults: 12,
                     key: key,
@@ -184,8 +189,7 @@ const youtubeApi = () => {
                     mainVid(data.items[0].snippet.resourceId.videoId);
 
                     $.each(data.items, (i, item) => {
-                        // console.log(item);
-                        let info = {
+                        const info = {
                             thumb: item.snippet.thumbnails.medium.url,
                             title: item.snippet.title,
                             desc: item.snippet.description.substring(0, 250),
@@ -193,21 +197,22 @@ const youtubeApi = () => {
                         };
 
                         // Send video id and info object to CreateVideo
-                        createVids(info.vid, info);
+                        const video = info.vid;
+                        createVids(video, info);
                     });
                 }
             );
         };
 
         const createVids = (vid, info) => {
-            $.get("https://www.googleapis.com/youtube/v3/videos", {
+            $.get(videosApiUrl, {
                     part: 'statistics, snippet',
                     key: key,
                     id: vid
                 },
                 (data) => {
                     $.each(data.items, (i, item) => {
-                        let stats = {
+                        const stats = {
                             views: item.statistics.viewCount,
                             comments: item.statistics.commentCount,
                             likes: item.statistics.likeCount,
