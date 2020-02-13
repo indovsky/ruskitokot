@@ -7,8 +7,9 @@ $album2 = get_field('album2');
 $album3 = get_field('album3');
 $album4 = get_field('album4');
 $album5 = get_field('album5');
+$album6 = get_field('album6');
 
-$albums = [$album1, $album2, $album3, $album4, $album5]; ?>
+$albums = [$album1, $album2, $album3, $album4, $album5, $album6]; ?>
 <section id="section-albums" class="section section--black">
     <div class="container reveal">
         <div class="row">
